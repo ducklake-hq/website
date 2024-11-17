@@ -24,12 +24,13 @@ const { href, title, body } = Astro.props;
 		list-style: none;
 		display: flex;
 		padding: 1px;
-		background-color: #23262d;
+		background-color: var(--theme-color-brand2);
 		background-image: none;
 		background-size: 400%;
+		max-width: 400px;
 		border-radius: 7px;
 		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		/* transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1); */
 		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 	}
 	.link-card > a {
@@ -39,7 +40,7 @@ const { href, title, body } = Astro.props;
 		padding: calc(1.5rem - 1px);
 		border-radius: 8px;
 		color: white;
-		background-color: #23262d;
+		/* background-color: #23262d; */
 		opacity: 0.8;
 	}
 	h2 {
@@ -53,9 +54,22 @@ const { href, title, body } = Astro.props;
 	}
 	.link-card:is(:hover, :focus-within) {
 		background-position: 0;
-		background-image: var(--accent-gradient);
+		/* background-image: linear-gradient(
+			0deg,
+			var(--theme-color-brand1) 0%);
+			var(--theme-color-brand3) 100%
+		); */
+		/* background: linear-gradient(
+			45deg,
+			hsla(33, 84%, 68%, 1) 0%,
+			var(--theme-color-brand3) 50%,
+			hsla(191, 96%, 18%, 1) 100%
+		);
+		 */
+		background-color: var(--theme-color-brand3);
 	}
 	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
+		/* color: rgb(var(--accent-light)); */
+		filter: brightness(120%)
 	}
 </style>

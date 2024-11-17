@@ -1,0 +1,30 @@
+---
+interface Props {
+	text: string;
+	href: string;
+}
+
+const props: Props = Astro.props;
+---
+
+<a href={props.href}>
+    {props.text}
+</a>
+
+<style>
+    a {
+        background-color: var(--theme-color-brand1);
+        padding: 10px;
+        text-decoration: none;
+        color: var(--theme-color-brand2);
+        margin: auto 5px 5px 5px;
+        padding: 10px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    a:hover {
+        filter: brightness(120%);
+    }
+</style>

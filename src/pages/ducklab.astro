@@ -3,22 +3,54 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
-import Link from "../components/Link.astro";
+import Link from '../components/Link.astro';
 ---
 
 <Layout title="DuckLake">
 	<Header />
 	<main>
 		<div class="title">
-			<Title title="DuckLake" />
-				<p class="subtitle">Small Data Tools</p>
+			<Title title="DuckLab" />
+			<div class="subtitle-container">
+				<p class="subtitle">
+					Interactive SQL, Python and PySpark Notebook environment
+				</p>
+				<div class="buttons">
+					<Link text="DuckLab for Web" href="https://lab.ducklake.io" />
+					<Link text="DuckLab for VS Code" href="https://marketplace.visualstudio.com/items?itemName=ducklake.ducklab" />
+				</div>
+			</div>
+
+			<p class="tagline">
+				Powered by Duck DB
+			</p>
 		</div>
 
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="/ducklab"
-				title="Ducklab"
-				body="Interactive SQL, Python and PySpark notebook environment powered by Duckdb"
+				href=""
+				title="Interactive Notebooks "
+				body="Interactive notebook supporting SQL and Python."
+			/>
+			<Card
+				href=""
+				title="Simple File Format"
+				body="Ducklab uses .isql file format which, unlike ipynb, is git-friendly and human readable."
+			/>
+			<Card
+				href=""
+				title="Pyspark Support (experimental)"
+				body="Run pyspark code locally in your notebook using duckdb."
+			/>
+			<Card
+				href=""
+				title="Import Databricks .py Files"
+				body="Import Databricks .py notebooks using Ducklab for VS Code."
+			/>
+			<Card
+				href=""
+				title="Private by Default"
+				body="Ducklab has no backend. It does all the processing within your machine."
 			/>
 			<!-- <Card
 				href="https://astro.build/integrations/"
@@ -55,7 +87,7 @@ import Link from "../components/Link.astro";
 		align-items: start;
 		/* height: 68px; */
 		/* font-size: 64px; */
-		margin-top: 30px;
+		margin-top: 20px;
 		/* margin-bottom: 30px; */
 	}
 	.subtitle {
@@ -69,6 +101,24 @@ import Link from "../components/Link.astro";
 		font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
 			"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 			"Noto Color Emoji";
+	}
+	.tagline {
+		margin: 0;
+		margin-bottom: 15px;
+		color: var(--theme-color-brand2);
+		font-size: 24px;
+		font-weight: bold;
+		text-shadow: 1px 1px 5px var(--theme-color-brand1);
+	}
+	.subtitle-container {
+		display: flex;
+		flex-direction: row;
+	}
+	.buttons {
+		margin-left: auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	.astro-a {
 		position: absolute;

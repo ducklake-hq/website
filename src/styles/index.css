@@ -1,0 +1,15 @@
+:root {
+    --theme-color-brand1: #F2B56B;
+    --theme-color-brand2: #024959;
+    --theme-color-brand3: #226368;
+    --theme-color-brand4: #171d1f;
+}
+
+
+@font-face {
+    font-family: 'MontserratAlt1-Light';
+    src: url("/fonts/MontserratAlt1-Light.otf") format("opentype");
+    font-style: normal;
+}
+
+@import url(./opensans.css);
