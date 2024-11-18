@@ -3,105 +3,52 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
-import Link from '../components/Link.astro';
+import Link from "../components/Link.astro";
+import ProductLayout from "../layouts/ProductLayout.astro";
 ---
 
-<Layout title="DuckLake">
-	<Header />
-	<main>
-		<div class="title">
-			<Title title="DuckLab" />
-			<div class="subtitle-container">
-				<p class="subtitle">
-					Interactive SQL, Python and PySpark Notebook environment
-				</p>
-				<div class="buttons">
-					<Link text="DuckLab for Web" href="https://lab.ducklake.io" />
-					<Link text="DuckLab for VS Code" href="https://marketplace.visualstudio.com/items?itemName=ducklake.ducklab" />
-				</div>
-			</div>
+<ProductLayout pageTitle="Ducklab">
+	<Fragment slot="title">
+		<Title title="DuckLab" />
+		<p class="subtitle">
+			Interactive SQL, Python and PySpark Notebook environment
+		</p>
+	</Fragment>
 
-			<p class="tagline">
-				Powered by Duck DB
-			</p>
-		</div>
+	<Fragment slot="buttons">
+		<Link text="DuckLab for Web" href="https://lab.ducklake.io" />
+		<Link
+			text="DuckLab for VS Code"
+			href="https://marketplace.visualstudio.com/items?itemName=ducklake.ducklab"
+		/>
+	</Fragment>
 
-		<ul role="list" class="link-card-grid">
-			<Card
-				href=""
-				title="Interactive Notebooks "
-				body="Interactive notebook supporting SQL and Python."
-			/>
-			<Card
-				href=""
-				title="Simple File Format"
-				body="Ducklab uses .isql file format which, unlike ipynb, is git-friendly and human readable."
-			/>
-			<Card
-				href=""
-				title="Pyspark Support (experimental)"
-				body="Run pyspark code locally in your notebook using duckdb."
-			/>
-			<Card
-				href=""
-				title="Import Databricks .py Files"
-				body="Import Databricks .py notebooks using Ducklab for VS Code."
-			/>
-			<Card
-				href=""
-				title="Private by Default"
-				body="Ducklab has no backend. It does all the processing within your machine."
-			/>
-			<!-- <Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/> -->
-		</ul>
-	</main>
-</Layout>
+	<Fragment slot="cards">
+		<Card
+			title="Interactive Notebooks "
+			body="Interactive notebook supporting SQL and Python."
+		/>
+		<Card
+			title="Simple File Format"
+			body="Ducklab uses .isql file format which, unlike ipynb, is git-friendly and human readable."
+		/>
+		<Card
+			title="Pyspark Support (experimental)"
+			body="Run pyspark code locally in your notebook using duckdb."
+		/>
+		<Card
+			title="Import Databricks .py Files"
+			body="Import Databricks .py notebooks using Ducklab for VS Code."
+		/>
+		<Card
+			title="Private by Default"
+			body="Ducklab has no backend. It does all the processing within your machine."
+		/>
+	</Fragment>
+	
+</ProductLayout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 90%;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.title {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		/* height: 68px; */
-		/* font-size: 64px; */
-		margin-top: 20px;
-		/* margin-bottom: 30px; */
-	}
-	.subtitle {
-		font-size: 36px;
-		font-weight: lighter;
-		margin-bottom: 7px;
-		margin-top: 5px;
-		max-width: 60%;
-		padding: 0;
-		line-height: 100%;
-		font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
-			"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-			"Noto Color Emoji";
-	}
 	.tagline {
 		margin: 0;
 		margin-bottom: 15px;
@@ -110,64 +57,23 @@ import Link from '../components/Link.astro';
 		font-weight: bold;
 		text-shadow: 1px 1px 5px var(--theme-color-brand1);
 	}
-	.subtitle-container {
-		display: flex;
-		flex-direction: row;
-	}
-	.buttons {
-		margin-left: auto;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
+	.subtitle {
+		font-size: 36px;
+		font-weight: lighter;
+		margin-bottom: 7px;
+		margin-top: 5px;
+		/* max-width: 60%; */
 		padding: 0;
+		line-height: 100%;
+		font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
+			"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+			"Noto Color Emoji";
 	}
+
+	@media screen and (max-width: 560px) {
+		.subtitle {
+			text-align: center;
+		}
+	}
+
 </style>

@@ -1,0 +1,86 @@
+---
+import Header from "../components/Header.astro";
+import Title from "../components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+	pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<Layout title={pageTitle}>
+	<Header />
+
+	<main>
+		<div class="cover-container">
+			<div class="title">
+				<slot name="title" />
+			</div>
+			<div class="buttons">
+				<slot name="buttons" />
+			</div>
+		</div>
+
+		<ul class="cards">
+			<slot name="cards" />
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 90%;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.cover-container {
+		display: flex;
+		flex-direction: row;
+		margin-top: 20px;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.buttons {
+		min-width: 40%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: end;
+	}
+	.cards {
+		margin-top: 35px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	@media screen and (max-width: 560px) {
+		.cover-container {
+			flex-direction: column;
+			align-items: center;
+		}
+		.title {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.subtitle {
+			text-align: center;
+		}
+		.buttons {
+			margin-top: 15px;
+			align-items: center;
+			justify-content: center;
+		}
+		.cards {
+			grid-template-columns: 1fr;
+			justify-items: center;
+		}
+	}
+</style>
