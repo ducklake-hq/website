@@ -32,7 +32,10 @@ const { title } = Astro.props;
 		<meta property="og:title" content="DuckLake" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.request.url} />
-		<meta property="og:image" content="/images/og_1200x630.png" />
+		<meta
+			property="og:image"
+			content={Astro.request.url + "images/og_1200x630.png"}
+		/>
 	</head>
 	<body>
 		<slot />
