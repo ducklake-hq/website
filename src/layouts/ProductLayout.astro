@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Title from "../components/Title.astro";
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 interface Props {
 	pageTitle: string;
@@ -10,7 +10,7 @@ interface Props {
 const { pageTitle } = Astro.props;
 ---
 
-<Layout title={pageTitle}>
+<BaseLayout title={pageTitle}>
 	<Header />
 
 	<main>
@@ -27,7 +27,7 @@ const { pageTitle } = Astro.props;
 			<slot name="cards" />
 		</ul>
 	</main>
-</Layout>
+</BaseLayout>
 
 <style>
 	main {
